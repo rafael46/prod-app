@@ -1,10 +1,16 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
+  margin-top: 15px;
 }
 
-.App-logo {
+/* .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
+} */
+
+
+.App .navbar-brand {
+  font-weight: normal;
 }
 
 .App-header {

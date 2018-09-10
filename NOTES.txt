@@ -1,6 +1,8 @@
 Search
 AWS Amplify demo in a redux style app
 
+
+
 AMPLIFY AND REDUX?
 https://github.com/aws-amplify/amplify-js/issues/1573
 

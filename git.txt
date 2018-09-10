@@ -8,3 +8,9 @@ git remote add origin https://github.com/rafael46/prod-app.git
 git push -u origin master
 
 
+git add .
+
+git commit -m "setting up repo"
+
+git push
+
