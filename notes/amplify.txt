@@ -1,0 +1,27 @@
+amplify status
+
+amplify init
+amplify push
+
+
+Some next steps:
+"amplify status" will show you what you've added already and if it's locally configured or deployed
+"amplify <category> add" will allow you to add features like user login or a backend API
+"amplify push" will build all your local backend resources and provision it in the cloud
+"amplify publish" will build all your local backend and frontend resources (if you have hosting category added) and provision it in the cloud
+
+Pro tip:
+Try "amplify add api" to create a backend API and then "amplify publish" to deploy everything
+
+
+
+---------------------------------
+
+cognito: {
+      REGION: "YOUR_COGNITO_REGION",
+      USER_POOL_ID: "YOUR_COGNITO_USER_POOL_ID",
+      APP_CLIENT_ID: "YOUR_COGNITO_APP_CLIENT_ID",
+      IDENTITY_POOL_ID: "YOUR_IDENTITY_POOL_ID"
+    }
+
+    

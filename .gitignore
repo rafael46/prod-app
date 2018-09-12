@@ -22,3 +22,5 @@ yarn-error.log*
 
 #misc 2
 /src/config.js
+ignore.txt
+

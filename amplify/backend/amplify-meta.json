@@ -1,0 +1,14 @@
+{
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "vipv1-20180912095035-authRole",
+            "UnauthRoleArn": "arn:aws:iam::803086181113:role/vipv1-20180912095035-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::803086181113:role/vipv1-20180912095035-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "vipv1-20180912095035-deployment",
+            "UnauthRoleName": "vipv1-20180912095035-unauthRole",
+            "StackName": "vipv1-20180912095035",
+            "StackId": "arn:aws:cloudformation:us-west-2:803086181113:stack/vipv1-20180912095035/f782afc0-b6ab-11e8-b650-025cdb5d2002"
+        }
+    }
+}
