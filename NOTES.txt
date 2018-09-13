@@ -1,5 +1,9 @@
+
+
+
 Search
-AWS Amplify demo in a redux style app
+AWS Amplify demo in a redux style app  ------->>>>>>*******
+https://www.pscp.tv/AWSreInvent/1dRJZbRdleXJB
 
 
 
@@ -8,4 +12,7 @@ https://github.com/aws-amplify/amplify-js/issues/1573
 
 
 aws-amplify-react
+
+API-KEY
+https://github.com/aws-amplify/amplify-js/issues/515
 

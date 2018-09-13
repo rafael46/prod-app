@@ -1,0 +1,15 @@
+
+AWSOME Amplify
+https://github.com/dabit3/awesome-aws-amplify
+
+
+TUTORIALS
+
+WORKSHOP Building Web Applications with AWS Amplify
+https://github.com/dabit3/aws-amplify-workshop-web#adding-a-graphql-api
+-------------------------------------------------------------------------------------
+
+Building Serverless Web Applications with AWS Amplify - AWS Online Tech Talks
+https://www.youtube.com/watch?v=uiTQL7Ne8rY&feature=youtu.be&t=10
+
+

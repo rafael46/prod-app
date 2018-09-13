@@ -1,0 +1,6 @@
+
+API 401 "No Access-Control-Allow-Origin header" response
+https://github.com/aws-amplify/amplify-js/issues/824
+--------------------------------------------------------------------
+
+
