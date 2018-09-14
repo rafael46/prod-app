@@ -3,6 +3,7 @@ import "./Home.css";
 import { API } from "aws-amplify";
 import config from "../config";
 import { PageHeader, ListGroup, ListGroupItem } from "react-bootstrap";
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from "react-bootstrap";
 
 // style = {text-align: left;}
 
@@ -36,19 +37,29 @@ contacts(){
 
 handleContactClick = (event) => {
   event.preventDefault();
-
+  this.props.history.push(event.currentTarget.getAttribute("href"));
 }
 // {/* {"contact: " + i } */}
 renderContactList(contacts){
+
   return [].concat(contacts).map(
     (contact,i) =>
-      <ListGroupItem 
-        key ={contact.cName} 
-        href = {`/todo/${contact.cName}`}
-        header={contact.cName} 
-        onClick = {this.handleContactClick}>
-        
-      </ListGroupItem>
+      i !== -1
+        ? <ListGroupItem 
+            key ={contact.cName} 
+            href = {`/todo/${contact.cName}`}
+            header={contact.cName} 
+            onClick = {this.handleContactClick}>
+          </ListGroupItem>
+        : <ListGroupItem
+             key="new"
+             href="/todo/new"
+             onClick={this.handleContactClick}
+          >
+          <h4>
+              <b>{"\uFF0B"}</b> New Contact
+          </h4>
+        </ListGroupItem>
   )  
 }
 
@@ -64,12 +75,41 @@ renderContact(){
   )
 }
 
+navigation() {
+  return(
+    <div>
+      <Navbar>
+      <Navbar.Header>
+        <Navbar.Brand>
+          <a href="#home">React-Bootstrap</a>
+        </Navbar.Brand>
+      </Navbar.Header>
+      <Nav>
+        <NavItem eventKey={1} href="#">
+          Link
+        </NavItem>
+        <NavItem eventKey={2} href="#">
+          Link
+        </NavItem>
+        <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
+          <MenuItem eventKey={3.1}>Action</MenuItem>
+          <MenuItem eventKey={3.2}>Another action</MenuItem>
+          <MenuItem eventKey={3.3}>Something else here</MenuItem>
+          <MenuItem divider />
+          <MenuItem eventKey={3.4}>Separated link</MenuItem>
+        </NavDropdown>
+      </Nav>
+      </Navbar>
+    </div>
+  );
+}
+
   render() {
     return (
       <div className="Home">
         {this.renderContact()}
+        { this.navigation() }
       </div>
     );
   }
 }
-
