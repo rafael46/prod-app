@@ -6,6 +6,9 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import Amplify from "aws-amplify";
 import config from "./config";
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
+
 
 Amplify.configure({
     Auth: {
