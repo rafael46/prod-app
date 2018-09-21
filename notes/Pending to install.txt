@@ -1,6 +1,6 @@
 
 
-npm install --save bootstrap@3   done   
+npm install --save bootstrap@3   
 npm install --save bootstrap@3
 
 React Materialize

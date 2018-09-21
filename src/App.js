@@ -30,10 +30,10 @@ class App extends Component {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
+        
         <Routes />
         
       </div>
-
     );
   }
 }

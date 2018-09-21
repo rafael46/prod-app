@@ -16,7 +16,7 @@ export default class Home extends Component {
       contacts: []
     };
   }
-async componentDidMount(){
+  async componentDidMount(){
 
   try {
     const contacts = await this.contacts();
@@ -41,7 +41,7 @@ handleContactClick = (event) => {
 }
 // {/* {"contact: " + i } */}
 renderContactList(contacts){
-
+  // i !== -1
   return [].concat(contacts).map(
     (contact,i) =>
       i !== -1
@@ -52,6 +52,7 @@ renderContactList(contacts){
             onClick = {this.handleContactClick}>
           </ListGroupItem>
         : <ListGroupItem
+            
              key="new"
              href="/todo/new"
              onClick={this.handleContactClick}
