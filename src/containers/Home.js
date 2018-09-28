@@ -39,7 +39,7 @@ handleContactClick = (event) => {
   event.preventDefault();
   this.props.history.push(event.currentTarget.getAttribute("href"));
 }
-// {/* {"contact: " + i } */}
+// {/* {"contact: y" + i } */}
 renderContactList(contacts){
   // i !== -1
   return [].concat(contacts).map(
