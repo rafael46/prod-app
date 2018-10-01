@@ -28,11 +28,14 @@ export default class Home extends Component {
 
   this.setState({ isLoading: false });
 }
-
+// , "Content-Type" : "application/json", "Accept" : "application/json"
 contacts(){
   const key = config.apiGateway.API_KEY;
-  const options = `{ headers: { 'x-api-key': ${key}}`;
-  return API.get("contacts","/todos",options);
+  const options = `{ headers: { 'x-api-key': ${key}}}`;
+  let myInit = {
+      headers: `{'x-api-key': ${key}}`
+  }
+  return API.get("contacts","/todos");
 }
 
 handleContactClick = (event) => {

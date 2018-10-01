@@ -25,3 +25,6 @@ cognito: {
     }
 
     
+    headers on api get enable cors
+    'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'
+
