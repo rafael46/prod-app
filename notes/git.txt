@@ -19,3 +19,5 @@ git add -A .    -->>   " is equivalent to "git add .; git add -u ."
 
 se instalo boostrap@3
 
+remove branch
+git remote rm origin

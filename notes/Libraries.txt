@@ -4,3 +4,10 @@ react-boostrap vs semantic-ui-react
 semantic-ui-react examples
 
 
+git push origin --delete app01
+
+
+delete branch
+
+https://cmatskas.com/delete-git-branch-locally-and-remotely/
+
