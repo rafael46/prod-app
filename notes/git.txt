@@ -17,7 +17,9 @@ git push
 git add -A .    -->>   " is equivalent to "git add .; git add -u ."
 
 
-se instalo boostrap@3
+se instalo bootstrap@3
+npm install bootstrap@3
+
 
 remove branch
 git remote rm origin
