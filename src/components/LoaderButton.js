@@ -1,5 +1,5 @@
 import React from "react";
-import { Button} from 'reactstrap';
+import { Button, Glyphicon } from "react-bootstrap";
 import "./LoaderButton.css";
 
 // , Glyphicon 
@@ -17,6 +17,6 @@ export default ({
     disabled={disabled || isLoading}
     {...props}
   >
-    {/* {isLoading && <Glyphicon glyph="refresh" className="spinning" />} */}
+    {isLoading && <Glyphicon glyph="refresh" className="spinning" />}
     {!isLoading ? text : loadingText}
   </Button>;

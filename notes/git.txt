@@ -21,3 +21,6 @@ se instalo boostrap@3
 
 remove branch
 git remote rm origin
+
+# view current remotes
+git remote -v

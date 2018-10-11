@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-// import { Nav, Navbar, NavItem } from "react-bootstrap";
-import { Nav, Navbar, NavItem } from 'reactstrap';
+import { Nav, Navbar, NavItem } from "react-bootstrap";
+// import { Nav, Navbar, NavItem } from 'reactstrap';
 
 import "./App.css";
 import Routes from "./Routes";
