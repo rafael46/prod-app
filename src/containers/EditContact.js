@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { API, Storage } from "aws-amplify";
-import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { FormGroup, FormControl, ControlLabel } from "reactstrap";
+
 import LoaderButton from "../components/LoaderButton";
 import config from "../config";
 import "./EditContact.css";
