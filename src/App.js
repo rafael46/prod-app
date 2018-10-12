@@ -8,18 +8,21 @@ import "./App.css";
 import Routes from "./Routes";
 import { LinkContainer } from "react-router-bootstrap";
 
+//{/* <Navbar.Header> */}
+{/* </Navbar.Header> */}
+
 class App extends Component {
   
   render() {
     return (
       <div className="App container">
         <Navbar fluid collapseOnSelect>
-          <Navbar.Header>
-            <Navbar.Brand>
+          
+          <Navbar.Brand>
               <Link to="/">Prod App</Link>
-            </Navbar.Brand>
-            <Navbar.Toggle />
-          </Navbar.Header>
+          </Navbar.Brand>
+          <Navbar.Toggle />
+         
           <Navbar.Collapse>
             <Nav pullRight>
             <LinkContainer to="/signup">
@@ -28,8 +31,6 @@ class App extends Component {
             <LinkContainer to="/login">
               <NavItem>Login</NavItem>
             </LinkContainer>
-              {/* <NavItem href="/signup">Signup</NavItem> */}
-              {/* <NavItem href="/login">Login</NavItem> */}
             </Nav>
           </Navbar.Collapse>
         </Navbar>
@@ -42,3 +43,7 @@ class App extends Component {
 }
 
 export default App;
+
+
+//  {/* <NavItem href="/signup">Signup</NavItem> */}
+// {/* <NavItem href="/login">Login</NavItem> */}

@@ -2,9 +2,13 @@ import React, { Component } from "react";
 import "./Home.css";
 import { API } from "aws-amplify";
 import config from "../config";
-import { PageHeader, ListGroup, ListGroupItem } from 'react-bootstrap';
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from "react-bootstrap";
+import { ListGroup, ListGroupItem } from 'react-bootstrap';   //PageHeader,
+// import { NavItem} from "react-bootstrap";   //  Nav,, NavDropdown, MenuItem 
+import Navbar from 'react-bootstrap/lib/Navbar'
+import Nav from 'react-bootstrap/lib/Nav'
 
+import DropdownButton from 'react-bootstrap/lib/DropdownButton'
+import Dropdown from 'react-bootstrap/lib/Dropdown'
 // import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 // style = {text-align: left;}
@@ -20,101 +24,110 @@ export default class Home extends Component {
   }
   async componentDidMount(){
 
-  try {
-    const contacts = await this.contacts();
-    console.log(contacts);
-    this.setState({ contacts });
-  } catch (e) {
-    alert(e);
+    try {
+      const contacts = await this.contacts();
+      console.log(contacts);
+      this.setState({ contacts });
+    } catch (e) {
+      alert(e);
+    }
+
+    this.setState({ isLoading: false });
+  }
+  // , "Content-Type" : "application/json", "Accept" : "application/json"
+  contacts(){
+    const key = config.apiGateway.API_KEY;
+    
+    return API.get("contacts","/todos");
+  }
+// const options = `{ headers: { 'x-api-key': ${key}}}`;
+    // let myInit = {
+    //     headers: `{'x-api-key': ${key}}`
+    // }
+
+  handleContactClick = (event) => {
+    event.preventDefault();
+    this.props.history.push(event.currentTarget.getAttribute("href"));
+  }
+  // {/* {"contact: y" + i } */}
+  renderContactList(contacts){
+    // i !== -1
+    return [].concat(contacts).map(
+      (contact,i) =>
+        i !== -1
+          ? <ListGroup.Item 
+              key ={contact.cName} 
+              href = {`/todo/${contact.cName}`}
+              header={contact.cName} 
+              onClick = {this.handleContactClick}>{contact.cName} 
+            </ListGroup.Item>
+          : <ListGroup.Item
+              
+              key="new"
+              href="/todo/new"
+              onClick={this.handleContactClick}
+            >
+            <h4>
+                <b>{"\uFF0B"}</b> New Contact
+            </h4>
+          </ListGroup.Item>
+    )  
+  }
+//  {/* <PageHeader>Contacts</PageHeader> */}
+  renderContact(){
+    return (
+      <div className="contacts">
+       
+        <h3>Contacts</h3>
+        <ListGroup>
+          {!this.state.isLoading && this.renderContactList(this.state.contacts)}
+        </ListGroup>
+      </div>
+    )
+  }
+// {/* <Navbar.Header> */}
+//  {/* </Navbar.Header> */}
+  navigation() {
+    return(
+      <div>
+        <Navbar>
+        
+          <Navbar.Brand>
+            <a href="#home">React-Bootstrap</a>
+          </Navbar.Brand>
+       
+        <Nav>
+          <Nav.Item eventKey={1} href="#">
+            Link
+          </Nav.Item>
+          <Nav.Item eventKey={2} href="#">
+            Link
+          </Nav.Item>
+          
+         
+        </Nav>
+        </Navbar>
+      </div>
+    );
   }
 
-  this.setState({ isLoading: false });
-}
-// , "Content-Type" : "application/json", "Accept" : "application/json"
-contacts(){
-  const key = config.apiGateway.API_KEY;
-  const options = `{ headers: { 'x-api-key': ${key}}}`;
-  let myInit = {
-      headers: `{'x-api-key': ${key}}`
-  }
-  return API.get("contacts","/todos");
-}
+//   <DropdownButton id="dropdown-item-button" title="Dropdown button">
+//   <Dropdown.Item as="button">Action</Dropdown.Item>
+//   <Dropdown.Item as="button">Another action</Dropdown.Item>
+//   <Dropdown.Item as="button">Something else</Dropdown.Item>
+// </DropdownButton>;
+// <Dropdown.Menu show>
+//   <Dropdown.Header>Dropdown header 1</Dropdown.Header>
+//   <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+//   <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
+// </Dropdown.Menu>;
 
-handleContactClick = (event) => {
-  event.preventDefault();
-  this.props.history.push(event.currentTarget.getAttribute("href"));
-}
-// {/* {"contact: y" + i } */}
-renderContactList(contacts){
-  // i !== -1
-  return [].concat(contacts).map(
-    (contact,i) =>
-      i !== -1
-        ? <ListGroupItem 
-            key ={contact.cName} 
-            href = {`/todo/${contact.cName}`}
-            header={contact.cName} 
-            onClick = {this.handleContactClick}>
-          </ListGroupItem>
-        : <ListGroupItem
-            
-             key="new"
-             href="/todo/new"
-             onClick={this.handleContactClick}
-          >
-          <h4>
-              <b>{"\uFF0B"}</b> New Contact
-          </h4>
-        </ListGroupItem>
-  )  
-}
-
-renderContact(){
-  return (
-    <div className="contacts">
-      {/* <PageHeader>Contacts</PageHeader> */}
-      <h3>Contacts</h3>
-      <ListGroup>
-        {!this.state.isLoading && this.renderContactList(this.state.contacts)}
-      </ListGroup>
-    </div>
-  )
-}
-
-navigation() {
-  return(
-    <div>
-      <Navbar>
-      <Navbar.Header>
-        <Navbar.Brand>
-          <a href="#home">React-Bootstrap</a>
-        </Navbar.Brand>
-      </Navbar.Header>
-      <Nav>
-        <NavItem eventKey={1} href="#">
-          Link
-        </NavItem>
-        <NavItem eventKey={2} href="#">
-          Link
-        </NavItem>
-        <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-          <MenuItem eventKey={3.1}>Action</MenuItem>
-          <MenuItem eventKey={3.2}>Another action</MenuItem>
-          <MenuItem eventKey={3.3}>Something else here</MenuItem>
-          <MenuItem divider />
-          <MenuItem eventKey={3.4}>Separated link</MenuItem>
-        </NavDropdown>
-      </Nav>
-      </Navbar>
-    </div>
-  );
-}
-
+// DropdownItem   {/* { this.navigation() } */}
   render() {
     return (
       <div className="Home">
         {this.renderContact()}
-        { this.navigation() }
+       
       </div>
     );
   }
