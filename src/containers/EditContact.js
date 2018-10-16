@@ -83,9 +83,7 @@ export default class EditContact extends Component {
           <form onSubmit = {this.handleSubmit}>
             <FormGroup controlId="cName">
               <FormControl
-                
                 value={this.state.cName}
-                
               />
             </FormGroup>
             <FormGroup controlId="notes">
