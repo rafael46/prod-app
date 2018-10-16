@@ -4,18 +4,22 @@ import { Link } from "react-router-dom";
 import { Nav, Navbar, NavItem } from "react-bootstrap";
 // import { Nav, Navbar, NavItem } from 'reactstrap';
 
-import "./App.css";
+// import "./App.css";
 import Routes from "./Routes";
 import { LinkContainer } from "react-router-bootstrap";
+import Navigation from './components/Navigation'
 
 //{/* <Navbar.Header> */}
 {/* </Navbar.Header> */}
 
 class App extends Component {
-  
+  // <div className="App container">
   render() {
     return (
       <div className="App container">
+       <div>
+         <Navigation />
+       
         <Navbar fluid collapseOnSelect>
           
           <Navbar.Brand>
@@ -37,6 +41,7 @@ class App extends Component {
         
         <Routes />
         
+      </div>
       </div>
     );
   }

@@ -12,10 +12,18 @@ export default class NewContact extends Component {
     
         this.state = {
           isLoading: null,
-          cname: ""
+          isDeleting: null,
+          cname: "",
+          notes: null
         };
       }
 
-  
+  render(){
+    return(
+      <div className NewContact>
+        <p>test </p>
+      </div>
+    )
+  }
       
 }
