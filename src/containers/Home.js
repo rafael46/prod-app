@@ -91,11 +91,9 @@ export default class Home extends Component {
     return(
       <div>
         <Navbar>
-        
           <Navbar.Brand>
             <a href="#home">React-Bootstrap</a>
           </Navbar.Brand>
-       
         <Nav>
           <Nav.Item eventKey={1} href="#">
             Link
@@ -103,8 +101,6 @@ export default class Home extends Component {
           <Nav.Item eventKey={2} href="#">
             Link
           </Nav.Item>
-          
-         
         </Nav>
         </Navbar>
       </div>

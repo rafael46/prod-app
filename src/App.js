@@ -1,30 +1,30 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
 import { Nav, Navbar, NavItem } from "react-bootstrap";
 // import { Nav, Navbar, NavItem } from 'reactstrap';
-
 // import "./App.css";
 import Routes from "./Routes";
 import { LinkContainer } from "react-router-bootstrap";
 import Navigation from './components/Navigation'
 
 //{/* <Navbar.Header> */}
-{/* </Navbar.Header> */}
-
+// {/* </Navbar.Header> */}
+// <Link to="/todo/new">Prod App</Link>
 class App extends Component {
   // <div className="App container">
   render() {
     return (
       <div className="App container">
        <div>
-         <Navigation />
+
+        <Navigation />
        
         <Navbar fluid collapseOnSelect>
           
           <Navbar.Brand>
               <Link to="/">Prod App</Link>
           </Navbar.Brand>
+
           <Navbar.Toggle />
          
           <Navbar.Collapse>

@@ -1,0 +1,2 @@
+
+React Bootstrap adjust width of text inputs

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { Form, FormGroup, FormControl, ControlLabel, Col } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
 import config from "../config";
 import "./NewContact.css";
@@ -52,34 +52,38 @@ export default class NewContact extends Component {
 
   render(){
     return(
-      <div className NewContact>
-        <p>test </p>
+      <div className= "NewContact">
 
-        <form onSubmit = {this.handleSubmit}>
-            <FormGroup controlId="cName">
-              <FormControl
-                onChange={this.handleChange}
-                value={this.state.cName}
-              />
-            </FormGroup>
-            <FormGroup controlId="notes">
+        <Form  onSubmit = {this.handleSubmit}>
+          <Form.Row>
+            <Form.Group as={Col} className= "Field" controlId="cName">
+              <Form.Label>Name</Form.Label>
+                <FormControl
+                  onChange={this.handleChange}
+                  value={this.state.cName}
+                />
+            </Form.Group>
+            
+            <Form.Group as={Col} controlId="notes">
+              <Form.Label>Notes</Form.Label>
               <FormControl
                 onChange={this.handleChange}
                 value={this.state.notes}
-                
               />
-            </FormGroup>
+            </Form.Group>
+          </Form.Row>
+            {/* 1 bsStyle="primary" bsSize="small" */}
             <LoaderButton
               block
-              bsStyle="primary"
-              bsSize="large"
+              
               
               type="submit"
               isLoading={this.state.isLoading}
               text="Save"
               loadingText="Saving…"
             />
-          </form>
+            
+        </Form>
       </div>
     )
   }

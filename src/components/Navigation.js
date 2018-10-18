@@ -44,12 +44,12 @@ class NavDropdown extends React.Component {
   }
 }
 
-
+// disabled="true"
 class Navigation extends React.Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="/">Navbar</a>
+        <a className="navbar-brand" href="/">Prod App</a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -58,12 +58,21 @@ class Navigation extends React.Component {
           <ul className="navbar-nav mr-auto">
             
             <NavItem path="/" name="Home" />
-            <NavItem path="/todo/new" name="Add New" />
-            <NavItem path="/page3" name="Disabled" disabled="true" />
+            <NavItem path="/todo/new" name="Add New Contact" />
+            <NavItem path="/page3" name="New Order"  />
             
-              <NavDropdown name="Dropdown">
-                <a className="dropdown-item" href="/">Action</a>
-                <a className="dropdown-item" href="/">Another action</a>
+            <NavDropdown name="Orders">
+                
+                <a className="dropdown-item" href="/todo/new">Add new Contact</a>
+                <a className="dropdown-item" href="/">action</a>
+                <div className="dropdown-divider"></div>
+                <a className="dropdown-item" href="/">Something else here</a>
+              </NavDropdown>
+
+              <NavDropdown name="Contacts">
+
+                <a className="dropdown-item" href="/todo/new">Add new Contact</a>
+                <a className="dropdown-item" href="/todo">Edit</a>
                 <div className="dropdown-divider"></div>
                 <a className="dropdown-item" href="/">Something else here</a>
               </NavDropdown>

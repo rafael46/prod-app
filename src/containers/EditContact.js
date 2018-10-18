@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { API, Storage } from "aws-amplify";
+import { API } from "aws-amplify";
 import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 
 import LoaderButton from "../components/LoaderButton";
@@ -21,7 +21,7 @@ export default class EditContact extends Component {
     }
 
     async componentDidMount(){
-    try {
+      try {
         const contact = await this.getContact();
         console.log("contact get::: " + JSON.stringify(contact));
         const { cName, notes} = contact;
@@ -31,10 +31,9 @@ export default class EditContact extends Component {
             notes
         })
 
-    } catch(e){
-        alert(e);
-    }
-
+      } catch(e){
+          alert(e);
+      }
     }
 
     getContact(){
