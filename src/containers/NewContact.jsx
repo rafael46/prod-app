@@ -14,7 +14,13 @@ export default class NewContact extends Component {
           isLoading: null,
           isDeleting: null,
           cname: "",
-          notes: null
+          email: "",
+          phone: "",
+          deactivated: false,
+          type: "",
+          locations: [],
+          notes: null,
+
         };
       }
 
@@ -42,6 +48,7 @@ export default class NewContact extends Component {
           [event.target.id]: event.target.value
         });
       }
+
     // , `/todos/${this.props.match.params.id}`,
     createContact(contact) {
       console.log(contact)
@@ -58,7 +65,7 @@ export default class NewContact extends Component {
           <Form.Row>
             <Form.Group as={Col} className= "Field" controlId="cName">
               <Form.Label>Name</Form.Label>
-                <FormControl
+                <Form.Control
                   onChange={this.handleChange}
                   value={this.state.cName}
                 />
@@ -66,17 +73,51 @@ export default class NewContact extends Component {
             
             <Form.Group as={Col} controlId="notes">
               <Form.Label>Notes</Form.Label>
-              <FormControl
+              <Form.Control
                 onChange={this.handleChange}
                 value={this.state.notes}
+              />
+            </Form.Group>
+          </Form.Row>
+          <Form.Row>
+            <Form.Group as={Col} controlId="email">
+              <Form.Label>eMail</Form.Label>
+              <Form.Control
+                 inChange= {this.handleChange}
+                 value={this.state.email}
+              />
+            </Form.Group>
+          </Form.Row>
+          <Form.Row>
+            <Form.Group as={Col} controlId="phone">
+              <Form.Label>Phone</Form.Label>
+              <Form.Control
+                 inChange= {this.handleChange}
+                 value={this.state.phone}
+              />
+            </Form.Group>
+            <Form.Group as={Col} controlId="type">
+              <Form.Label>Type</Form.Label>
+              <Form.Control
+                 inChange= {this.handleChange}
+                 value={this.state.type}
+              />
+            </Form.Group>
+            
+          </Form.Row>
+          <Form.Row>
+            <Form.Group as={Col} controlId="locations">
+              <Form.Label>Locations</Form.Label>/>
+              <Form.Control
+                inChange= {this.handleChange}
+                value={this.state.type} 
               />
             </Form.Group>
           </Form.Row>
             {/* 1 bsStyle="primary" bsSize="small" */}
             <LoaderButton
               block
-              
-              
+
               type="submit"
               isLoading={this.state.isLoading}
               text="Save"

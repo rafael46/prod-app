@@ -1,7 +1,12 @@
+.LoaderButton {
+  width: 150px;
+}
+
 .LoaderButton .spinning.glyphicon {
     margin-right: 7px;
     top: 2px;
     animation: spin 1s infinite linear;
+    width: 100px;
   }
   @keyframes spin {
     from { transform: scale(1) rotate(0deg); }
