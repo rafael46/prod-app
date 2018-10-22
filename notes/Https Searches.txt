@@ -1,0 +1,26 @@
+
+Array Objects:
+
+Spread and Rest operators
+react return state to the parent form
+
+Searches
+-------------------------------------------------------------------------
+How can I add items to object list?
+https://hashnode.com/post/how-can-i-add-items-to-object-lists-reactjs-cj8lu9fsu02gd00wuqkss1ixf
+
+---------------------------------------------------------------------------------------------------
+
+React.js - What is the best way to add a value to an array of objects in state
+https://stackoverflow.com/questions/26505064/react-js-what-is-the-best-way-to-add-a-value-to-an-array-in-state
+https://stackoverflow.com/questions/37435334/correct-way-to-push-into-state-array/37435577
+
+
+What is the best way to add a value to an array of objects in state
+------------------------
+
+Adding new object to an array
+https://stackoverflow.com/questions/48921992/react-js-adding-new-object-to-an-array
+
+
+add items to object list react forms
