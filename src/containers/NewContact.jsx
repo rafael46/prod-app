@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Form, FormGroup, FormControl, ControlLabel, Col, Button } from "react-bootstrap";
-import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
-
+// import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import BootstrapTable  from 'react-bootstrap-table-next';
+// TableHeaderColumn
 import LoaderButton from "../components/LoaderButton";
 import config from "../config";
 import "./NewContact.css";
@@ -22,17 +23,17 @@ export default class NewContact extends Component {
           locations: [],
           notes: null,
           //
-          address1: "",
-          address2:"",
-          "city": "Los Angeles",
-          "state": "",
-          "zipcode": "",
-          "isDefault": false,
+          address1: " ",
+          address2:" ",
+          city: "Los Angeles",
+          state: " ",
+          zipcode: " ",
+          isDefault: false,
         };
 
         this.location = {
-          address1: "",
-          address2:"",
+          address1: " ",
+          address2:" ",
           "city": "Los Angeles",
           "state": "CA",
           "zipcode": "90021",
@@ -73,7 +74,7 @@ export default class NewContact extends Component {
       list_.push(list);
       this.setState({locations:list_})
     }
-
+    // Add location on this form
     handleAddLocation= () => {
       let list_ = {address1: this.state.address1, address2: this.state.address2};
       let list2 = this.state.locations;
@@ -81,7 +82,7 @@ export default class NewContact extends Component {
       this.setState({locations:list2})
 
     }
-
+    //  Add location on subform
     handleAddLocationForm = e => {
       let list_ = {...e.target.value};
       let list2 = this.state.locations;
@@ -104,6 +105,29 @@ export default class NewContact extends Component {
     }
 
   render(){
+    let data1 = {...this.state.locations};
+    console.log("data1: " + data1)
+    const columns = [{
+      dataField: "address1",
+      text: "Adress",
+    },
+    {
+      dataField: "address2",
+      text: "Adress 2",
+    },
+    {
+      dataField: "city",
+      text: "City",
+    },
+    {
+      dataField: "state",
+      text: "State",
+    },
+    {
+      dataField: "zipcode",
+      text: "Zip",
+    }];
+
     return(
       <div className= "NewContact">
 
@@ -168,19 +192,21 @@ export default class NewContact extends Component {
                 value={this.state.address2} 
               />
             </Form.Group>
-            <Button onClick={this.handleAddLocation}>Add Loc</Button>
+            <Button  onClick={this.handleAddLocation}>Add Loc</Button>
           </Form.Row>
-          {/* options={options} */}
+          <Form.Row>
+            <Form.Group  as={Col} controlId="city">
+              <Form.Label>City</Form.Label>
+                <Form.Control
+                  onChange= {this.handleChange}
+                  value={this.state.city} 
+                />
+            </Form.Group>
+          </Form.Row>
+        
           <h5>Locations</h5>
-          <BootstrapTable data={this.state.locations}
-          
-            >
-            <TableHeaderColumn dataField="address1" isKey dataAlign="left">Address</TableHeaderColumn>
-            <TableHeaderColumn dataField="address2" isKey dataAlign="left">Address 2</TableHeaderColumn>
 
-
-
-          </BootstrapTable>
+          <BootstrapTable keyField="address1" data={[this.data1]} columns={columns}/>
 
             {/* 1 bsStyle="primary" bsSize="small" */}
             <LoaderButton

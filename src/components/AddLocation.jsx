@@ -18,8 +18,9 @@ export default class AddLocation extends Component {
   }
   
   handleSubmit = () => {
-
   }
+
+
   render() {
     return (
       <div>
