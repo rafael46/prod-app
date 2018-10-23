@@ -7,12 +7,13 @@ import LoaderButton from "../components/LoaderButton";
 import config from "../config";
 import "./NewContact.css";
 import { API } from "aws-amplify";
+import AddLocation from "../components/AddLocation";
 // import { s3Upload } from "../libs/awsLib";
 
 export default class NewContact extends Component {
-    constructor(props) {
-      super(props);
-        this.state = {
+    // constructor(props) {
+      // super(props);   this.
+        state = {
           isLoading: null,
           isDeleting: null,
           cname: "",
@@ -20,7 +21,7 @@ export default class NewContact extends Component {
           phone: "",
           deactivated: false,
           type: "",
-          locations: [],
+          locations: [{address1:"1601-1",address2:"ste",city:"Los Angeles",state: "ca",zipcode: "9"}],
           notes: null,
           //
           address1: " ",
@@ -31,7 +32,7 @@ export default class NewContact extends Component {
           isDefault: false,
         };
 
-        this.location = {
+        location = {
           address1: " ",
           address2:" ",
           "city": "Los Angeles",
@@ -39,7 +40,7 @@ export default class NewContact extends Component {
           "zipcode": "90021",
           "isDefault": false,
         }
-    }
+    // } // constructor
     //  console.log("location1::: " + location);
 
     handleSubmit = async event =>{
@@ -74,11 +75,13 @@ export default class NewContact extends Component {
       list_.push(list);
       this.setState({locations:list_})
     }
-    // Add location on this form
+    // Add location on this form   .... WORKS local form *************-----------------------
     handleAddLocation= () => {
-      let list_ = {address1: this.state.address1, address2: this.state.address2};
+       let list_copy = {address1: this.state.address1, address2: this.state.address2, city:this.state.city,state:this.state.state,zipcode:this.state.zipcode};
+      // let list_copy = {...this.state.locations};
+
       let list2 = this.state.locations;
-      list2.push(list_);
+      list2.push(list_copy);
       this.setState({locations:list2})
 
     }
@@ -176,7 +179,7 @@ export default class NewContact extends Component {
               />
             </Form.Group>
           </Form.Row>
-
+          {/* address fields */}
           <Form.Row>
             <Form.Group as={Col} controlId="address1">
               <Form.Label>Address</Form.Label>
@@ -192,7 +195,7 @@ export default class NewContact extends Component {
                 value={this.state.address2} 
               />
             </Form.Group>
-            <Button  onClick={this.handleAddLocation}>Add Loc</Button>
+           
           </Form.Row>
           <Form.Row>
             <Form.Group  as={Col} controlId="city">
@@ -203,10 +206,14 @@ export default class NewContact extends Component {
                 />
             </Form.Group>
           </Form.Row>
-        
+          {/*  */}
+          <Button  onClick={this.handleAddLocation}>Add Loc do not</Button>
+          {/* 44    callbackData*/}
+          < AddLocation value = {this.handleAddLocationForm}/>
+          {/* 222 */}
           <h5>Locations</h5>
 
-          <BootstrapTable keyField="address1" data={[this.data1]} columns={columns}/>
+          <BootstrapTable keyField="address1" data={[this.state.locations]} columns={columns}/>
 
             {/* 1 bsStyle="primary" bsSize="small" */}
             <LoaderButton

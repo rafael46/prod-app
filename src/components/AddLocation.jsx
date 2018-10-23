@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-
+import { Form, Col} from "react-bootstrap";
+// , FormGroup, FormControl, ControlLabel, Col, Button
+import LoaderButton from "../components/LoaderButton"
 export default class AddLocation extends Component {
   
   state = {
@@ -9,6 +11,7 @@ export default class AddLocation extends Component {
     "state": "",
     "zipcode": "",
     "isDefault": false,
+    isLoading: null,
   }
 
   handleChange = event => {
@@ -18,14 +21,42 @@ export default class AddLocation extends Component {
   }
   
   handleSubmit = () => {
+
+    this.props.value(this.state)
   }
 
 
   render() {
     return (
       <div>
-        <Form onSubnmit= {this.props.handleAddLocationForm}>
+        <Form onSubnmit= {this.handleSubmit}>
+          <Form.Row>
+          <Form.Group as={Col} controlId="address1">
+              <Form.Label>Address</Form.Label>
+              <Form.Control
+                onChange= {this.handleChange}
+                value={this.state.address1} 
+              />
+            </Form.Group>
+            <Form.Group as={Col} controlId="address2">
+              <Form.Label>Address 2</Form.Label>
+              <Form.Control
+                onChange= {this.handleChange}
+                value={this.state.address2} 
+              />
+            </Form.Group>
+           
 
+          </Form.Row>
+          <button ></button>
+          {/* <LoaderButton
+              block
+              type="submit"
+              isLoading={" "}
+              text="Save loc"
+              loadingText="Saving…"
+            /> */}
+{/* // this.state.isLoading */}
         </Form>
       </div>
     )
