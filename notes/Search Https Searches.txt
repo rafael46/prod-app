@@ -24,3 +24,12 @@ https://stackoverflow.com/questions/48921992/react-js-adding-new-object-to-an-ar
 
 
 add items to object list react forms
+
+ 
+react-bootstrap-table-next cellEditFactory not defined
+
+ReactJS Bind Data from Rest API to table
+
+-----------------------------------------------
+using amplify with semantic-ui-react
+-----------------------------------------------

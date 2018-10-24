@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Form, FormGroup, FormControl, ControlLabel, Col, Button } from "react-bootstrap";
 // import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import BootstrapTable  from 'react-bootstrap-table-next';
+import cellEditFactory from 'react-bootstrap-table2-editor';
+
 // TableHeaderColumn
 import LoaderButton from "../components/LoaderButton";
 import config from "../config";
@@ -10,6 +12,30 @@ import { API } from "aws-amplify";
 import AddLocation from "../components/AddLocation";
 // import { s3Upload } from "../libs/awsLib";
 
+const options = {
+  noDataText: "No data found"
+}
+
+const columns = [{
+  dataField: "address1",
+  text: "Adress",
+},
+{
+  dataField: "address2",
+  text: "Adress 2",
+},
+{
+  dataField: "city",
+  text: "City",
+},
+{
+  dataField: "state",
+  text: "State",
+},
+{
+  dataField: "zipcode",
+  text: "Zip",
+}];
 export default class NewContact extends Component {
     // constructor(props) {
       // super(props);   this.
@@ -42,7 +68,8 @@ export default class NewContact extends Component {
         }
     // } // constructor
     //  console.log("location1::: " + location);
-
+    
+    
     handleSubmit = async event =>{
         event.preventDefault();
         
@@ -110,26 +137,7 @@ export default class NewContact extends Component {
   render(){
     let data1 = {...this.state.locations};
     console.log("data1: " + data1)
-    const columns = [{
-      dataField: "address1",
-      text: "Adress",
-    },
-    {
-      dataField: "address2",
-      text: "Adress 2",
-    },
-    {
-      dataField: "city",
-      text: "City",
-    },
-    {
-      dataField: "state",
-      text: "State",
-    },
-    {
-      dataField: "zipcode",
-      text: "Zip",
-    }];
+    
 
     return(
       <div className= "NewContact">
@@ -213,7 +221,7 @@ export default class NewContact extends Component {
           {/* 222 */}
           <h5>Locations</h5>
 
-          <BootstrapTable keyField="address1" data={[this.state.locations]} columns={columns}/>
+          <BootstrapTable keyField="address1" data={[this.state.locations]} columns={columns} cellEdit={cellEditFactory({ mode: 'click'})} options={options}/>
 
             {/* 1 bsStyle="primary" bsSize="small" */}
             <LoaderButton
