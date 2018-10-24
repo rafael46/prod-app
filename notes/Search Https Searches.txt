@@ -33,3 +33,4 @@ ReactJS Bind Data from Rest API to table
 -----------------------------------------------
 using amplify with semantic-ui-react
 -----------------------------------------------
+semantic-ui-react how to add row to table

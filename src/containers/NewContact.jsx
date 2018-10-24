@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import { Form, FormGroup, FormControl, ControlLabel, Col, Button } from "react-bootstrap";
+import { Form, FormGroup, FormControl, ControlLabel, Col  } from "react-bootstrap";  // Button
 // import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import BootstrapTable  from 'react-bootstrap-table-next';
 import cellEditFactory from 'react-bootstrap-table2-editor';
+// 
+import {Button, Table} from 'semantic-ui-react'
 
 // TableHeaderColumn
 import LoaderButton from "../components/LoaderButton";
@@ -188,16 +190,17 @@ export default class NewContact extends Component {
             </Form.Group>
           </Form.Row>
           {/* address fields */}
+          {/* address fields */}
           <Form.Row>
             <Form.Group as={Col} controlId="address1">
-              <Form.Label>Address</Form.Label>
+              <Form.Label>Address-</Form.Label>
               <Form.Control
                 onChange= {this.handleChange}
                 value={this.state.address1} 
               />
             </Form.Group>
             <Form.Group as={Col} controlId="address2">
-              <Form.Label>Address 2</Form.Label>
+              <Form.Label>Address 2-</Form.Label>
               <Form.Control
                 onChange= {this.handleChange}
                 value={this.state.address2} 
@@ -207,7 +210,7 @@ export default class NewContact extends Component {
           </Form.Row>
           <Form.Row>
             <Form.Group  as={Col} controlId="city">
-              <Form.Label>City</Form.Label>
+              <Form.Label>City+</Form.Label>
                 <Form.Control
                   onChange= {this.handleChange}
                   value={this.state.city} 
@@ -220,8 +223,33 @@ export default class NewContact extends Component {
           < AddLocation value = {this.handleAddLocationForm}/>
           {/* 222 */}
           <h5>Locations</h5>
+          <Table>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>Address</Table.HeaderCell>
+                <Table.HeaderCell>Address 2</Table.HeaderCell>
+                <Table.HeaderCell>City</Table.HeaderCell>
+                <Table.HeaderCell>State</Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>
+              {this.state.locations.map((data,idx) =>
+              <Table.Row key={idx}>
+                <Table.Cell>{data.address1}</Table.Cell>
+                <Table.Cell>{data.address2}</Table.Cell>
+                <Table.Cell>{data.city}</Table.Cell>
+                <Table.Cell>{data.state}</Table.Cell>
+                <Table.Cell>{data.zipcode}</Table.Cell>
+              </Table.Row>
+              )
 
-          <BootstrapTable keyField="address1" data={[this.state.locations]} columns={columns} cellEdit={cellEditFactory({ mode: 'click'})} options={options}/>
+              }
+            </Table.Body>
+          </Table>
+      
+
+
+          {/* <BootstrapTable keyField="address1" data={[this.state.locations]} columns={columns} cellEdit={cellEditFactory({ mode: 'click'})} options={options}/> */}
 
             {/* 1 bsStyle="primary" bsSize="small" */}
             <LoaderButton
