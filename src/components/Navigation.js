@@ -63,19 +63,18 @@ class Navigation extends React.Component {
             
             <NavDropdown name="Orders">
                 
-                <a className="dropdown-item" href="/todo/new">Add new Contact</a>
-                <a className="dropdown-item" href="/">action</a>
-                <div className="dropdown-divider"></div>
-                <a className="dropdown-item" href="/">Something else here</a>
-              </NavDropdown>
+              <a className="dropdown-item" href="/todo/new">Add new Contact</a>
+              <a className="dropdown-item" href="/">action</a>
+              <div className="dropdown-divider"></div>
+              <a className="dropdown-item" href="/">Something else here</a>
+            </NavDropdown>
 
-              <NavDropdown name="Contacts">
-
-                <a className="dropdown-item" href="/todo/new">Add new Contact</a>
-                <a className="dropdown-item" href="/todo">Edit</a>
-                <div className="dropdown-divider"></div>
-                <a className="dropdown-item" href="/">Something else here</a>
-              </NavDropdown>
+            <NavDropdown name="Contacts">
+              <a className="dropdown-item" href="/todo/new">Add new Contact</a>
+              <a className="dropdown-item" href="/todo">Edit</a>
+              <div className="dropdown-divider"></div>
+              <a className="dropdown-item" href="/">Something else here</a>
+            </NavDropdown>
             
           </ul>
           <form className="form-inline my-2 my-lg-0">
