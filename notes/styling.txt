@@ -1,2 +1,9 @@
 
 React Bootstrap adjust width of text inputs
+
+
+const options = {
+  noDataText: "No data found"
+}
+
+

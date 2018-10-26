@@ -5,11 +5,11 @@ import LoaderButton from "../components/LoaderButton"
 export default class AddLocation extends Component {
   
   state = {
-    address1: "",
-    address2:"",
+    address1: " ",
+    address2:" ",
     "city": "Los Angeles",
-    "state": "",
-    "zipcode": "",
+    "state": " ",
+    "zipcode": " ",
     "isDefault": false,
     isLoading: null,
   }
@@ -20,9 +20,10 @@ export default class AddLocation extends Component {
     });
   }
   
-  handleSubmit = () => {
-
-    this.props.value(this.state)
+  handleSubmit = (e) => {
+    e.preventDefault();
+    // this.setState({})
+    this.props.handleAddLocationForm(this.state)
   }
 
 
@@ -48,7 +49,7 @@ export default class AddLocation extends Component {
            
 
           </Form.Row>
-          <button ></button>
+          <button type="submit">save loc1.</button>
           {/* <LoaderButton
               block
               type="submit"

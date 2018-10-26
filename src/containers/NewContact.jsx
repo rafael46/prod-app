@@ -9,16 +9,49 @@ import {Button, Table} from 'semantic-ui-react'
 
 // TableHeaderColumn
 import LoaderButton from "../components/LoaderButton";
-import config from "../config";
+// import config from "../config";
 import "./NewContact.css";
 import { API } from "aws-amplify";
-import AddLocation from "../components/AddLocation";
+// import AddLocation from "../components/AddLocation";
 // import { s3Upload } from "../libs/awsLib";
 
-const options = {
-  noDataText: "No data found"
-}
+class AddItem extends React.Component{
+  state ={
+    address1: " ",
+    address2:" ",
+  }
 
+  handleChange = event => {
+    this.setState({
+      [event.target.id]: event.target.value
+    });
+  }
+  // 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    // this.setState({})
+    this.props.handleAddLocationForm(this.state)
+  }
+
+  
+         
+
+  render(){
+    return(
+      <div>
+      <Form onSubmit={e => {this.handleSubmit(e)}}>
+        <Form.Row>
+          <Form.Input label='Address--' placeholder='address1' name='address1' value={this.state.address1} onChange={this.handleChange}/>
+          <Form.Input placeholder='Address 2' name='address2' value={this.state.address2} onChange={this.handleChange}/>
+         
+            <Button type="submit">add location</Button>
+        </Form.Row>
+      </Form>
+      </div>
+    );
+  }
+
+}
 export default class NewContact extends Component {
     // constructor(props) {
       // super(props);   this.
@@ -94,7 +127,9 @@ export default class NewContact extends Component {
     }
     //  Add location on subform
     handleAddLocationForm = e => {
+      e.preventDefault();
       let list_ = {...e.target.value};
+      console.log("list_: "+ JSON.stringify(list_));
       let list2 = this.state.locations;
       list2.push(list_);
       this.setState({locations:list2})
@@ -115,30 +150,49 @@ export default class NewContact extends Component {
     }
 
   render(){
-    let data1 = {...this.state.locations};
-    console.log("data1: " + data1)
+    // no ...
+    let data1 = {...this.state.locations}; 
+    console.log("data1: " + JSON.stringify(data1));
     return(
       <div className= "NewContact">
 
         <Form onSubmit = {this.handleSubmit}>
           
             <Form.Group>
-              <Form.Input placeholder='Name' name='cName' value={this.state.cName} onChange={this.handleChange}/>
+              <Form.Input label='Name' placeholder='Name' name='cName' value={this.state.cName} onChange={this.handleChange}/>
               <Form.Input placeholder='Notes' name='notes' value={this.state.notes} onChange={this.handleChange}/>
             </Form.Group>
             <Form.Group>
-              
+            <Form.Input label='eMail' placeholder='eMail' name='email' value={this.state.email} onChange={this.handleChange}/>
+              <Form.Input placeholder='phone' name='phone' value={this.state.phone} onChange={this.handleChange}/>
+
             </Form.Group>
 
+            <Form.Group>
+              <Form.Input label='Address' placeholder='address' name='address1' value={this.state.address1} onChange={this.handleChange}/>
+              <Form.Input placeholder='Address 2' name='address2' value={this.state.address2} onChange={this.handleChange}/>
+
+            </Form.Group>
+            <Form onSubmit = {e => {this.handleAddLocationForm(e)}}>
+              <Form.Input label='Address--' placeholder='address1' name='address1' value={this.state.address1} onChange={this.handleChange}/>
+              <Form.Input placeholder='Address 2' name='address2' value={this.state.address2} onChange={this.handleChange}/>
+              <button type="submit">add loc...</button>
+            </Form>
 
 
           {/* address fields */}
           {/* address fields */}
 
           {/*  */}
-          <Button  onClick={this.handleAddLocation}>Add Loc do not</Button>
+          {/* <Button onClick={this.openForm}>add location</Button> */}
+
+          {/* <Button  onClick={this.handleAddLocation}>Add Loc do no--</Button> */}
           {/* 44    callbackData*/}
-          < AddLocation value = {this.handleAddLocationForm}/>
+
+          {/* < AddLocation value = {this.handleAddLocationForm}/> */}
+
+         
+          
           {/* 222 */}
           {/* Already handle by semantic ui */}
           <h5>Locations</h5>
@@ -179,6 +233,9 @@ export default class NewContact extends Component {
               loadingText="Saving…"
             />
         </Form>
+
+        {/* <AddItem value={this.handleAddLocationForm}/> */}
+
       </div>
     )
   }
