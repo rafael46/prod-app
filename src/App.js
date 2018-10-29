@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Nav, Navbar, NavItem } from "react-bootstrap";
 // import { Nav, Navbar, NavItem } from 'reactstrap';
 // import "./App.css";
+import './css/Example.css';
+// import './css/index.css';
 import Routes from "./Routes";
 import { LinkContainer } from "react-router-bootstrap";
 import Navigation from './components/Navigation'
