@@ -219,8 +219,6 @@ export default class NewContact extends Component {
               }
             </Table.Body>
           </Table>
-      
-
 
           {/* <BootstrapTable keyField="address1" data={[this.state.locations]} columns={columns} cellEdit={cellEditFactory({ mode: 'click'})} options={options}/> */}
 
