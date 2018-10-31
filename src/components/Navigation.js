@@ -59,11 +59,11 @@ class Navigation extends React.Component {
             
             <NavItem path="/" name="Home" />
             <NavItem path="/todo/new" name="Add New Contact" />
-            <NavItem path="/page3" name="New Order"  />
+            <NavItem path="/so/new" name="New S Order"  />
             
             <NavDropdown name="Orders">
                 
-              <a className="dropdown-item" href="/todo/new">Add new Contact</a>
+              <a className="dropdown-item" href="/so/new">New Sales Order</a>
               <a className="dropdown-item" href="/">action</a>
               <div className="dropdown-divider"></div>
               <a className="dropdown-item" href="/">Something else here</a>
