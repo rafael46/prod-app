@@ -1,0 +1,118 @@
+{
+  "billTo": {
+    "addressLine1": "11152 WALLINGSFORD RD",
+    "addressLine2": "SUITE 1R",
+    "addressLine3": " ",
+    "balance": 0,
+    "city": "ROSSMOOR",
+    "contactSMS": "2138425036",
+    "country": "USA",
+    "creditLimit": 5000,
+    "creditLimitOverride": true,
+    "id": "KRAMERICA",
+    "mainEmail": "admin@vipmarketingla.com",
+    "mainTelephone": "2138425036",
+    "name": "KRAMERICA",
+    "state": "CA",
+    "status": "active",
+    "type": "CUSTOMER-VENDOR",
+    "zip": "90720"
+  },
+  "carrier": "willcall",
+  "charges": [],
+  "createdDate": 1540861084156,
+  "customer": "KRAMERICA",
+  "isLocked": true,
+  "lineItems": [
+    {
+      "commodity": "bananas",
+      "cost": 12,
+      "description": "PLANTAIN BANANAS FRESH",
+      "images": [],
+      "label": "FRESH",
+      "lineNo": 1,
+      "lotsItemList": [
+        {
+          "buyer": {
+            "email": "admin@vipmarketingla.com",
+            "fax": "8885492694",
+            "location": "headquarters",
+            "name": "Ricardo Ruiz",
+            "sms": "2138425036"
+          },
+          "description": "PLANTAIN BANANAS FRESH",
+          "label": "FRESH",
+          "lotDate": 1540846586256,
+          "lotID": "3101",
+          "lotNo": "12621-1",
+          "minimumPrice": 2,
+          "origin": "US",
+          "poNumber": "12621",
+          "qty": 2,
+          "sku": "ban101",
+          "transactionID": "3563FCCD-0153-495E-8079-9F74BD69CCE8"
+        }
+      ],
+      "origin": "US",
+      "price": 4,
+      "qty": 2,
+      "queryArray": [
+        {
+          "commodity": "bananas"
+        },
+        {
+          "variety": "plantain"
+        }
+      ],
+      "setup": false,
+      "size": "-",
+      "sku": "ban101",
+      "type": "CONVENTIONAL",
+      "vendor": {
+        "addressLine1": "11152 WALLINGSFORD RD",
+        "addressLine2": "SUITE 1R",
+        "addressLine3": " ",
+        "balance": 0,
+        "city": "ROSSMOOR",
+        "contactSMS": "2138425036",
+        "country": "USA",
+        "creditLimit": 5000,
+        "creditLimitOverride": true,
+        "id": "KRAMERICA",
+        "mainEmail": "admin@vipmarketingla.com",
+        "mainTelephone": "2138425036",
+        "name": "KRAMERICA",
+        "state": "CA",
+        "status": "active",
+        "type": "CUSTOMER-VENDOR",
+        "zip": "90720"
+      }
+    }
+  ],
+  "notes": "-",
+  "observer": {
+    "email": "hector@vipmarketingla.com",
+    "fax": "8885492694",
+    "location": "headquarters",
+    "name": "Hector Coronel",
+    "sms": "2133051386"
+  },
+  "orderDate": "1540861084",
+  "orderID": "6370",
+  "orderNumber": "506252",
+  "orderType": "CREDIT",
+  "paid": false,
+  "payments": [],
+  "poNumber": "-",
+  "reference": "-",
+  "shipDate": 0,
+  "shipTo": {},
+  "status": "open",
+  "user": {
+    "email": "admin@vipmarketingla.com",
+    "fax": "8885492694",
+    "location": "headquarters",
+    "name": "Ricardo Ruiz",
+    "sms": "2138425036"
+  }
+}

@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import { Debug } from '../../components/Debug';
 
 import { API } from "aws-amplify";
+import customers from '../../data/customers.json';
 
 const Fieldset = ({ label, name, ...props }) => (
   <React.Fragment>
@@ -40,34 +41,70 @@ const initialValues ={
   orderType: 'CREDIT',
   paid: 'false',
   status: 'open',
-  user: 'me',
+  
   "observer": {
     "email": "hector@vipmarketingla.com",
-    "fax": "8885492694",
-    "location": "headquarters",
     "name": "Hector Coronel",
-    "sms": "2133051386"
   },
-  "billTo": {
-    "addressLine1": "11152 WALLINGSFORD RD",
-    "addressLine2": "SUITE 1R",
-    "city": "ROSSMOOR",
-    "contactSMS": "2138425036",
-    "country": "USA",
-    "creditLimitOverride": true,
-    "id": "KRAMERICA",
-    "mainEmail": "admin@vipmarketingla.com",
-    "mainTelephone": "2138425036",
-    "name": "KRAMERICA",
-    "state": "CA",
-    "status": "active",
-    "type": "CUSTOMER-VENDOR",
-    "zip": "90720"
+
+  billTo: {
+    addressLine1: "11152 WALLINGSFORD RD",
+    addressLine2: "SUITE 1R",
+    city: "ROSSMOOR",
+    mainEmail: "admin@vipmarketingla.com",
+    mainTelephone: "2138425036",
+    name: "KRAMERICA",
+    state: "CA",
+    type: "CUSTOMER-VENDOR",
+    zip: "90720"
   },
+  lineItems:[
+    {
+      commodity: "bananas",
+      cost: 12,
+      description: "PLANTAIN BANANAS FRESH",
+      label: "FRESH",
+      lineNo: 0,
+      lotNo: "",
+      origin: "US",
+      price: 4,
+      qty: 2,
+      size: "-",
+      sku: "ban101",
+      lotsItemList:[
+        {
+          lotID: "3101",
+          lotNo: "12621-1",
+          minimumPrice: 2,
+          origin: "US",
+          qty: 2,
+          sku: "ban101",
+        }
+        
+      ],
+
+    }
+  ],
+  notes: "-",
+  reference: "-",
+  user: {
+    "email": "rafael@vipmarketingla.com",
+    "name": "Rafael",
+    "sms": "2135050000"
+  }
 }
+const Custom = () => (
+  <React.Fragment>
+    <ul>
+      {customers.map(customer => <li>{customer.name}</li>)}
+    </ul>
+  </React.Fragment>
+)
+
 
 const NewSO = () => (
   <div>
+    
     <p>New SO</p>
     <Formik
       initialValues={initialValues}
@@ -80,6 +117,7 @@ const NewSO = () => (
       }}
     >
       {({values, isSubmitting, handleBlur, handleReset,  errors, touched, setFieldValue}) => (
+       
         <Form>
           <Fieldset
             name="customer"
@@ -87,6 +125,50 @@ const NewSO = () => (
             type="text"
             placeholder= "Customer Name"
           />
+          <Fieldset
+            name="user.name"
+            label="Employee"
+            type="text"
+            placeholder= "Employee Name"
+          />
+          <FieldArray name lineItems>
+            {({push, remove}) => (
+              <React.Fragment>
+                {values.lineItems && 
+                values.lineItems.length >0 &&
+                values.lineItems.map((lineItem, index) => (
+                  <div className="row">
+                    <div className="col">
+                    <Field name={`lineItems[${index}].lineNo`} >
+                      {({ field, form }) => (
+                            <input
+                              {...field}
+                              type="text"
+                              placeholder="lineNo"
+                              value={index+1}
+                            />
+                          )}
+
+                      </Field>
+                      <Field name={`lineItems[${index}].lotNo`} >
+                      {({ field, form }) => (
+                            <input
+                              {...field}
+                              type="text"
+                              placeholder="lotno"
+                            />
+                          )}
+
+                      </Field>
+                    </div>
+                  </div>
+                ))
+
+                }
+              </React.Fragment>
+            )}
+
+          </FieldArray>
 
           <button type="reset" className="secondary" onClick={handleReset}>
             Reset

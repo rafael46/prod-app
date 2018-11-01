@@ -1,0 +1,38 @@
+[
+    {
+    "addressLine1": "2310 Martin Luther King",
+    "addressLine2": " ",
+    "balance": 0,
+    "city": "Calexico",
+    "contactName": " ",
+    "contactPhone": " ",
+    "contactSMS": " ",
+    "country": "USA",
+    "id": "1010",
+    "mainEmail": "soporte@ferbis.com",
+    "mainTelephone": "6865653623",
+    "name": "Fersa Products LLC",
+    "state": "Ca",
+    "status": "active",
+    "type": "CUSTOMER",
+    "zip": "92231"
+    },
+    {
+      "addressLine1": "P.O. BOX 20559",
+      "addressLine2": " ",
+      "balance": 0,
+      "city": "OXNARD",
+      "country": "USA",
+      "creditLimit": 5000,
+      "creditLimitOverride": false,
+      "id": "102",
+      "mainEmail": " ",
+      "mainFax": "8052402330",
+      "mainTelephone": "8052402333",
+      "name": "Success Valley",
+      "state": "Ca",
+      "status": "active",
+      "type": "CUSTOMER-VENDOR",
+      "zip": "93034"
+    }
+]
