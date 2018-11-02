@@ -36,6 +36,8 @@ const createSalesOrder = (order) =>{
   });
 }
 
+
+
 const initialValues ={
   customer: 'KRAMERICA',
   orderType: 'CREDIT',
@@ -65,6 +67,7 @@ const initialValues ={
       description: "PLANTAIN BANANAS FRESH",
       label: "FRESH",
       lineNo: 0,
+      lotID: "3101",
       lotNo: "",
       origin: "US",
       price: 4,
@@ -158,7 +161,42 @@ const NewSO = () => (
                               placeholder="lotno"
                             />
                           )}
-
+                      </Field>
+                      <Field name={`lineItems[${index}].commodity`} >
+                      {({ field, form }) => (
+                            <input
+                              {...field}
+                              type="text"
+                              placeholder="lotno"
+                            />
+                          )}
+                      </Field>
+                      <Field name={`lineItems[${index}].qty`} >
+                      {({ field, form }) => (
+                            <input
+                              {...field}
+                              type="text"
+                              placeholder="qty"
+                            />
+                          )}
+                      </Field>
+                      <Field name={`lineItems[${index}].price`} >
+                      {({ field, form }) => (
+                            <input
+                              {...field}
+                              type="text"
+                              placeholder="price"
+                            />
+                          )}
+                      </Field>
+                      <Field name={`lineItems[${index}].description`} >
+                      {({ field, form }) => (
+                            <input
+                              {...field}
+                              type="text"
+                              placeholder="description"
+                            />
+                          )}
                       </Field>
                     </div>
                   </div>
@@ -169,7 +207,7 @@ const NewSO = () => (
             )}
 
           </FieldArray>
-
+          <br></br>
           <button type="reset" className="secondary" onClick={handleReset}>
             Reset
           </button>
