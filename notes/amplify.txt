@@ -4,6 +4,7 @@ amplify init
 amplify push
 
 
+
 Some next steps:
 "amplify status" will show you what you've added already and if it's locally configured or deployed
 "amplify <category> add" will allow you to add features like user login or a backend API
